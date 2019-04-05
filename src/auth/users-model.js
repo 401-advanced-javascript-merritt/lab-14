@@ -24,6 +24,12 @@ const capabilities = {
   user: ['read'],
 };
 
+users.virtual('roles', {
+  ref: 'roles',
+  localField: 'role',
+  foreignField: 'capabilities',
+});
+
 users.pre('save', function(next) {
   bcrypt.hash(this.password, 10)
     .then(hashedPassword => {
@@ -32,6 +38,10 @@ users.pre('save', function(next) {
     })
     .catch(error => {throw new Error(error);});
 });
+
+users.methods.can = function(capability){
+  return capabilities[this.role].includes(capability);
+};
 
 users.statics.createFromOauth = function(email) {
 
