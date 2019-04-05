@@ -9,6 +9,8 @@ const morgan = require('morgan');
 const errorHandler = require( './middleware/500.js');
 const notFound = require( './middleware/404.js' );
 const authRouter = require( './auth/router.js' );
+const testroute = require('./auth/testroutes.js');
+
 
 // Prepare the express app
 const app = express();
@@ -21,11 +23,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 // Routes
+app.use(testroute);
 app.use(authRouter);
 
 // Catchalls
 app.use(notFound);
 app.use(errorHandler);
+
 
 let isRunning = false;
 
