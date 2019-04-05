@@ -4,9 +4,9 @@
 ## Lab 14
 ### Chris Merritt
 ### Links and Resources
-* [PR][1]
-* [travis][2]
+* [PR]()
 
+[![Build Status](https://www.travis-ci.com/401-advanced-javascript-merritt/lab-14.svg?branch=master)](https://www.travis-ci.com/401-advanced-javascript-merritt/lab-14)
 
 ### Modules
 #### `testroutes.js`
